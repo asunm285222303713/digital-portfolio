@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        /* Internal CSS for styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .login-container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .submit-btn:hover {
+            background-color: #45a049;
+        }
+
+        .error-message {
+            color: red;
+            display: none;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+        <div class="error-message" id="error-message">Please enter both username and password!</div>
+        <form id="login-form">
+            <input type="text" id="username" class="input-field" placeholder="Username" required><br>
+            <input type="password" id="password" class="input-field" placeholder="Password" required><br>
+            <button type="submit" class="submit-btn">Login</button>
+        </form>
+    </div>
+
+    <script>
+        // Internal JavaScript for form validation
+        document.getElementById('login-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Get the values of the username and password fields
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+
+            // Validate the input
+            if (username === "" || password === "") {
+                // Show error message if fields are empty
+                document.getElementById('error-message').style.display = 'block';
+            } else {
+                // If inputs are valid, proceed to login (for now, just a simple alert)
+                alert("Login successful!");
+                // Reset the form
+                document.getElementById('login-form').reset();
+                // Hide the error message
+                document.getElementById('error-message').style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
